@@ -1,0 +1,3 @@
+[submodule "shake.js"]
+	path = shake.js
+	url = git@github.com:alexgibson/shake.js.git
