@@ -1,0 +1,22 @@
+<head>
+  <title>example</title>
+</head>
+
+<body>
+  <h1>Meteor shake test</h1>
+  <p>Running on: {{client}}</p>
+
+  {{> shakes}}
+</body>
+
+<template name="shakes">
+  <button>Toggle watching for shakes</button>
+  Watching: {{watching}}
+  <hr/>
+
+  <ol>
+  {{#each shakes}}
+    <li>{{timestamp}}</li>
+  {{/each}}
+  </ol>
+</template>
