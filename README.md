@@ -42,6 +42,7 @@ To stop listening for shakes,
 ## Unsupported environments
 
 * Xcode simulator (no idea why)
+* Android emulator - allegedly the emulator doesn't support the accelerometer, but that's [dubious](https://github.com/phonegap/phonegap-start/issues/141)
 
 
 
