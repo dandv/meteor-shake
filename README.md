@@ -20,16 +20,29 @@ Since the shake.js API is [needlessly complicated](https://github.com/alexgibson
 this package will let you use a simple and isomorphic (Cordova or mobile browsers) API almost
 identical to that of Lee Crossley's package:
 
-
-    shake.startWatch(callback, sensitivity);  // sensitivity will be passed to Cordova or as `threshold` to shake.js
+    // sensitivity will be passed to Cordova or as `threshold` to shake.js
+    shake.startWatch(callback, sensitivity);
 
 or
 
-    shake.startWatch(callback, optionsObject);  // passed as-is to shake.js - won't work for Cordova!
+    // passed as-is to shake.js - won't work for Cordova!
+    shake.startWatch(callback, optionsObject);
 
 To stop listening for shakes,
 
     shake.stopWatch();
+
+
+## Supported environments
+
+* Chrome for Android
+* iOS Safari (though two shakes event may be generated per actual shake)
+
+
+## Unsupported environments
+
+* Xcode simulator (no idea why)
+
 
 
 # License and author
