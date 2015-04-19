@@ -1,12 +1,13 @@
 /*global shake:true*/  // Meteor creates a file-scope global for exporting. This comment prevents a potential JSHint warning.
 if (Meteor.isClient) {
+  // browser only; Cordova has its own plugin
   shake = window.Shake;
 
   shake.startWatch = function shakeStartWatch(callback, options) {
-    if (typeof options === "object")
+    if (typeof options === "number")
+      shake.meteorShakeListener = new shake({threshold: options});
+    else  // pass object or undefined as-is
       shake.meteorShakeListener = new shake(options);
-    else
-      shake.meteorShakeListener = new shake({threshold: options});  // number
 
     shake.meteorShakeListener.start();
     window.addEventListener('shake', shake.meteorCallback = callback, false);
