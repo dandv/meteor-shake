@@ -13,6 +13,10 @@ This package brings together two shake detection plugins:
 Curiously, the Cordova plugin isn't aligned with the W3C spec - a [known issue](https://issues.apache.org/jira/browse/CB-6069).
 
 
+## Demo
+
+* http://shaker.meteor.com
+* see the [example](example)
 
 ## Usage
 
@@ -34,7 +38,7 @@ To stop listening for shakes,
 
 ## Debouncing
 
-Debouncing is a technique by which a repeatedly occurring event is handled only once, after a number of miliseconds have passed since the event last happened. It's commonly used to handle resize events and perform complex resizing calculations only after the user has stopped resizing. Without [debouncing](http://underscorejs.org/#debounce), Cordova fires the shake callback [twice](https://github.com/leecrossley/cordova-plugin-shake-detection/issues/11) by the time the user has stopped shaking, or even three times.
+Debouncing is a technique by which a repeatedly occurring event is handled only once, after a number of miliseconds have passed since the event last happened. It's commonly used to handle resize events and perform complex resizing calculations only after the user appears to have stopped resizing. Without [debouncing](http://underscorejs.org/#debounce), Cordova fires the shake callback [twice](https://github.com/leecrossley/cordova-plugin-shake-detection/issues/11) by the time the user has stopped shaking, or even three times.
 
     onShake = _.debounce(function onShake() {
       Session.set('shakesCount', Session.get('shakesCount') + 1);
@@ -45,15 +49,15 @@ Debouncing is a technique by which a repeatedly occurring event is handled only 
 
 ## Difference in sensitivities on Cordova vs. mobile browsers
 
-Mobile browsers and Cordova use different APIs, as explained in the introduction. A sensitivity of 25 is too much for mobile browsers, while 30 is the default for Cordova and 40 is given as an example. A value of "15" fortunately isn't too low for Cordova and seems to work well on both Android Cordova and Chrome. I haven't tested on iOS yet. 
+Mobile browsers and Cordova use different APIs, as explained in the introduction. A sensitivity of 25 is too much for mobile browsers, while 30 is the default for Cordova and 40 is given as an example. A value of "15" fortunately isn't too low for Cordova and seems to work well on all supported platforms. 
 
 
 ## Supported environments
 
-* Android
-* Chrome for Android
+* Android (tested with 4.4 on Samsung Galaxy S5)
+* Android Chrome and Opera
 * iOS Safari
-* iOS (iPhone, iPad etc. - TBD)
+* iOS (tested with iPhone 5)
 
 
 ## Unsupported environments
