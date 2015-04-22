@@ -18,6 +18,7 @@ Curiously, the Cordova plugin isn't aligned with the W3C spec - a [known issue](
 * http://shaker.meteor.com
 * see the [example](example)
 
+
 ## Usage
 
 Since the shake.js API is [needlessly complicated](https://github.com/alexgibson/shake.js/issues/26),
@@ -36,16 +37,13 @@ To stop listening for shakes,
 
     shake.stopWatch();
 
+
 ## Debouncing
 
-Debouncing is a technique by which a repeatedly occurring event is handled only once, after a number of miliseconds have passed since the event last happened. It's commonly used to handle resize events and perform complex resizing calculations only after the user appears to have stopped resizing. Without [debouncing](http://underscorejs.org/#debounce), Cordova fires the shake callback [twice](https://github.com/leecrossley/cordova-plugin-shake-detection/issues/11) by the time the user has stopped shaking, or even three times.
+Note that on both Cordova and in mobile browsers, shakes are debounced, so that at least 750ms must pass between two shakes, in order for separate shakes to register.
 
-    onShake = _.debounce(function onShake() {
-      Session.set('shakesCount', Session.get('shakesCount') + 1);
-    }, 750, true);  // fire the shake as soon as it occurs, but not again if less than 750ms have passed
+Debouncing is a technique by which a repeatedly occurring event is handled only once, after a number of miliseconds have passed since the event last happened. It's commonly used to handle resize events and perform complex resizing calculations only after the user appears to have stopped resizing. Without [debouncing](http://underscorejs.org/#debounce), Cordova would fire the shake callback [twice](https://github.com/leecrossley/cordova-plugin-shake-detection/issues/11) by the time the user has stopped shaking, or even three times.
 
-
-    shake.startWatch(onShake, 15);
 
 ## Difference in sensitivities on Cordova vs. mobile browsers
 

@@ -1,13 +1,13 @@
 Package.describe({
   name: 'shake:shake',
-  version: '0.1.0',
+  version: '0.2.0',
   summary: 'Detect shake events in mobile browsers or Cordova apps',
   git: 'https://github.com/dandv/meteor-shake',
   documentation: 'README.md'
 });
 
 Cordova.depends({
-  'uk.co.ilee.shake': '0.3.1'
+  'uk.co.ilee.shake': '0.4.0'
 });
 
 Package.onUse(function(api) {
