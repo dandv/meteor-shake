@@ -7,7 +7,7 @@ Package.describe({
 });
 
 Cordova.depends({
-  'uk.co.ilee.shake': '0.4.0'
+  'uk.co.ilee.shake': '0.5.3'
 });
 
 Package.onUse(function(api) {
